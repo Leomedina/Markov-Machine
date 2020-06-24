@@ -1,4 +1,3 @@
-const markovMachine = require('./markov')
 const { MarkovMachine } = require('./markov')
 
 describe('Test functionality around initiating a MarkovMachine Class', () => {
@@ -9,14 +8,19 @@ describe('Test functionality around initiating a MarkovMachine Class', () => {
         text = "the cat in the hat"
         mm = new MarkovMachine(text);
     })
-    
+
     test('Initiating with string should return class of MarkovMachine', () => {
         expect(mm).toEqual(expect.any(MarkovMachine));
     })
-    
+
     test('MarkovChain should return accurate chains', () => {
-        const RESULT = { "the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null] };
-        expect(mm.makeChains()).toEqual(RESULT);
+        const RESULT = new Map([
+            ["the", ["cat", "hat"]],
+            ["cat", ["in"]],
+            ["in", ["the"]],
+            ["hat", [null]]
+        ]);
+        expect(mm.chains).toEqual(RESULT);
     })
 
 })
