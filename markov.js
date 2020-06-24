@@ -1,21 +1,17 @@
 /** Textual markov chain generator */
 
-
 class MarkovMachine {
-
   /** build markov machine; read in text.*/
 
   constructor(text) {
     let words = text.split(/[ \r\n]+/);
     this.words = words.filter(c => c !== "");
-    this.makeChains();
   }
 
   /** set markov chains:
    *
    *  for text of "the cat in the hat", chains will be
    *  {"the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null]} */
-
   makeChains() {
     const container = {}
 
@@ -29,9 +25,10 @@ class MarkovMachine {
         container[KEY].push(this.checkForNull(this.words, i))
       }
     }
-    console.log(container)
+    return container
   }
 
+  
   checkForNull(words, index) {
     if (words[index + 1]) {
       return words[index + 1];
@@ -48,4 +45,4 @@ class MarkovMachine {
 }
 
 const markovMachine = new MarkovMachine("the cat in the hat");
-
+module.exports = { MarkovMachine }
