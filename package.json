@@ -1,0 +1,11 @@
+{
+  "name": "markov",
+  "version": "1.0.0",
+  "description": "Create an algorithm to generate realistic machine-made text from an original source",
+  "main": "makeText.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo Medina",
+  "license": "ISC"
+}
